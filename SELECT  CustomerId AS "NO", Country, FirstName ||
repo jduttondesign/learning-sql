@@ -1,0 +1,38 @@
+1) non_usa_customers.sql: Provide a query showing Customers (just their full names, customer ID and country) who are not in the US.
+	SELECT  CustomerId AS "NO", Country, FirstName || "" || LastName AS "Full Name" FROM Customer WHERE Country == “USA”
+
+
+2) brazil_customers.sql: Provide a query only showing the Customers from Brazil.
+	SELECT * FROM Customer WHERE Country == "Brazil"
+
+
+/////3) brazil_customers_invoices.sql: Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.
+
+
+4) sales_agents.sql: Provide a query showing only the Employees who are Sales Agents.
+	SELECT * FROM Employee WHERE Title == "Sales Support Agent"
+
+
+5) unique_invoice_countries.sql: Provide a query showing a unique/distinct list of billing countries from the Invoice table.
+	SELECT Distinct BillingCountry FROM Invoice
+
+
+6) sales_agent_invoices.sql: Provide a query that shows the invoices associated with each sales agent. The resultant table should include the Sales Agent's full name.
+	SELECT FirstName || " " || LastName AS SalesAgentName, Title, InvoiceId FROM Employee INNER JOIN Invoice i WHERE Title == "Sales Support Agent" ORDER BY InvoiceId
+
+7) invoice_totals.sql: Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
+
+
+8) total_invoices_{year}.sql: How many Invoices were there in 2009 and 2011?
+	SELECT * FROM Invoice WHERE InvoiceDate LIKE "2009%"
+	SELECT * FROM Invoice WHERE InvoiceDate LIKE "2011%"
+	
+
+9) total_sales_{year}.sql: What are the respective total sales for each of those years?
+	/////SELECT Invoice ROUND (SUM(Total),2) FROM Total WHERE DATE(InvoiceDate) LIKE "2009%"
+
+10) total_sales_{year}.sql: What are the respective total sales for each of those years?
+	/////SELECT Invoice ROUND (SUM(Total),2) FROM Total WHERE DATE(InvoiceDate) LIKE "2011%"
+	SELECT COUNT(InvoiceId), InvoiceId FROM InvoiceLine GROUP BY InvoiceId
+
+11) line_items_per_invoice.sql: Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for each Invoice. HINT: GROUP BY	
