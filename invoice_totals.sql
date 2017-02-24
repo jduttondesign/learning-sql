@@ -1,1 +1,2 @@
 7) invoice_totals.sql: Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
+SELECT c.FirstName || " " || c.LastName AS CustomerName, c.Country, e.FirstName || " " || e.LastName AS SalesAgentName, i.Total FROM Invoice i INNER JOIN Employee e INNER JOIN Customer c on c.SupportRepId = e.EmployeeId WHERE e.Title == "Sales Support Agent" ORDER BY InvoiceId

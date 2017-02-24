@@ -1,3 +1,3 @@
-10) total_sales_{year}.sql: What are the respective total sales for each of those years?
-	/////SELECT Invoice ROUND (SUM(Total),2) FROM Total WHERE DATE(InvoiceDate) LIKE "2011%"
-	SELECT COUNT(InvoiceId), InvoiceId FROM InvoiceLine GROUP BY InvoiceId
+10) invoice_37_line_item_count.sql: Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
+	SELECT COUNT (InvoiceLineId) FROM InvoiceLine WHERE InvoiceId == "37"
+	

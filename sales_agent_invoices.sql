@@ -1,1 +1,2 @@
-6) sales_agent_invoices.sql: Provide a query that shows the invoices associated with each sales agent. The resultant table should include the Sales Agent's full name.
+6) sales_agent_invoices.sql: 
+SELECT FirstName || " " || LastName AS SalesAgentName, Title, InvoiceId FROM Employee INNER JOIN Invoice i WHERE Title == "Sales Support Agent" ORDER BY InvoiceId
